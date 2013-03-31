@@ -1,27 +1,12 @@
-﻿<!doctype html>
-<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
-<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+---
+layout: default
+title: GitWatcher Blog 
+---
 
-  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen"/>
-  <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script type="text/javascript" src="javascripts/script.js"></script>
-
-  <title>Yoonasun.github.com</title>
-  <meta name="description" content="yoona's blog">
-
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-
-</head>
-
-<body>
-
-<h1>welcome,to my small house</h1>
-<h2>welcome</h2>
-  
-</body>
-</html>
+    {% for post in site.posts %}
+      <div class="hero-unit">
+        <p><h2><a href="/blog{{ post.url }}">{{ post.title }}</a></h2>{{ post.date | date_to_string }} - {{site.author}}</p>
+        <p>{{ post.content | strip_html | truncatewords: 55 }}</p>
+        <p><a href="/blog{{ post.url }}">Read more ...</a></p>
+      </div>
+    {% endfor %}
